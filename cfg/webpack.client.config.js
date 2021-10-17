@@ -1,9 +1,9 @@
 const path = require('path');
-const { HotModuleReplacementPlugin } = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const NODE_ENV  = process.env.NODE_ENV;
-const IS_DEV  = NODE_ENV === 'development';
-const IS_PROD  = NODE_ENV === 'production';
+const {HotModuleReplacementPlugin} = require('webpack');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const NODE_ENV = process.env.NODE_ENV;
+const IS_DEV = NODE_ENV === 'development';
+const IS_PROD = NODE_ENV === 'production';
 
 function setupDevTools() {
     if (IS_DEV) return 'eval';
@@ -32,8 +32,25 @@ module.exports = {
             {
                 test: /\.[jt]sx?$/,
                 use: ['ts-loader']
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: {
+                                mode: 'local',
+                                localIdentName: '[name]__[local]--[hash:base64:5]',
+                            },
+                        }
+                    },
+                    'less-loader',
+                ],
+
             }
-        ]
+        ],
     },
     devtool: setupDevTools(),
     plugins: IS_DEV ? [
