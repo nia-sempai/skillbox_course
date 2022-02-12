@@ -4,14 +4,19 @@ import {Controls} from "./Controls";
 import {Menu} from "./Menu";
 import {TextContent} from "./TextContent";
 import {Preview} from "./Preview";
+import {TCard} from "../../Types/TCard";
 
-export function Card() {
+interface ICardProps {
+    cardData: TCard;
+}
+
+export function Card({cardData}: ICardProps) {
     return (
         <li className={styles.card}>
-            <TextContent/>
-            <Preview/>
+            <TextContent cardData={cardData}/>
+            <Preview previewUrl={cardData.previewUrl}/>
             <Menu/>
-            <Controls/>
+            <Controls cardData={cardData}/>
         </li>
     );
 }

@@ -1,15 +1,20 @@
 import React from 'react';
 import styles from './userlink.css';
+import {TUser} from "../../../Types/TUser";
 
-export function UserLink() {
+interface IUserLinkProps {
+    user: TUser;
+}
+
+export function UserLink({user}: IUserLinkProps) {
   return (
       <div className={styles.userLink}>
         <img
             className={styles.avatar}
-            src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png"
+            src={user.avatarUrl.toString()}
             alt="avatar"
         />
-        <a href="#user-url" className={styles.username}>Дмитрий Гришин</a>
+        <a href="#user-url" className={styles.username}>{user.name}</a>
       </div>
   );
 }

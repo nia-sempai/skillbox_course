@@ -4,12 +4,17 @@ import {KarmaCounter} from "../KarmaCounter";
 import {CommentsButton} from "../CommentsButton";
 import {ShareButton} from "../ShareButton";
 import {SaveButton} from "../SaveButton";
+import {TCard} from "../../../Types/TCard";
 
-export function Controls() {
+interface IControlsProps {
+    cardData: TCard;
+}
+
+export function Controls({cardData}: IControlsProps) {
   return (
       <div className={styles.controls}>
-          <KarmaCounter/>
-          <CommentsButton/>
+          <KarmaCounter karmaValue={cardData.karmaValue}/>
+          <CommentsButton commentsCount={cardData.commentsCount}/>
           <div className={styles.actions}>
               <ShareButton/>
               <SaveButton/>
