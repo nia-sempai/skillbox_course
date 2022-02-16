@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './cardslist.css';
 import {Card} from "./Card";
 import {TCard} from "../Types/TCard";
-
+import {generateId} from "../../utils/react/generateRandomIndex";
 
 let cards: TCard[] = [
     {
@@ -25,12 +25,13 @@ let cards: TCard[] = [
         },
         karmaValue: 456,
     },
-]
+].map(generateId)
+
 
 export function CardsList() {
     return (
         <ul className={styles.cardsList}>
-            {cards.map(card => <Card cardData={card}/>)}
+            {cards.map((card, index) => <Card key={card.id} cardData={card}/>)}
         </ul>
     );
 }

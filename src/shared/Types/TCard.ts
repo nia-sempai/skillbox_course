@@ -1,6 +1,8 @@
 import {TUser} from './TUser';
+import {Key} from "react";
 
 export type TCard = {
+    id?: Key,
     text: String,
     postUrl: String,
     previewUrl: String,
