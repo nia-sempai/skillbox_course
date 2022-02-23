@@ -18,6 +18,15 @@
     background-color: rgba(51, 51, 51, 0.1);
 }
 
+.menuItem{
+    width: 100px;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+.menuItem:hover{
+    background-color: rgba(51, 51, 51, 0.1);
+}
+
 .dropdown {
     position: absolute;
     right: 0;

@@ -16,9 +16,6 @@ export function Card({cardData}: ICardProps) {
     return (
         <li className={styles.card}>
             <TextContent cardData={cardData}/>
-            <Dropdown button={<button>test_button</button>}>
-                <ul><li>2222</li></ul>
-            </Dropdown>
             <Preview previewUrl={cardData.previewUrl}/>
             <Menu/>
             <Controls cardData={cardData}/>
