@@ -1,14 +1,15 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import styles from './menuitemslist.css';
 import {generateRandomString} from "../../../../../utils/react/generateRandomIndex";
-import {Text, EColors} from "../../../../Text";
-import {BlockIcon, CommentIcon, WarningIcon} from "../../../../Icons";
+import {EColors, Text} from "../../../../Text";
+import {Icon} from "../../../../Icons/Icon";
+import {EIcon} from "../../../../Icons/EIcon";
 
 interface IMenuItem {
     id: string,
     text: string,
     onClick?: (id: string) => void,
-    icon: React.ReactNode,
+    icon: EIcon,
     href?: string
 }
 
@@ -16,27 +17,27 @@ const menuItems: IMenuItem[] = [
     {
         id: generateRandomString(),
         text: 'Комментарии',
-        icon: () => CommentIcon()
+        icon: EIcon.comment
     },
     {
         id: generateRandomString(),
         text: 'Поделиться',
-        icon: () => CommentIcon()
+        icon: EIcon.share
     },
     {
         id: generateRandomString(),
         text: 'Скрыть',
-        icon: () => BlockIcon()
+        icon: EIcon.block
     },
     {
         id: generateRandomString(),
         text: 'Сохранить',
-        icon: () => CommentIcon()
+        icon: EIcon.save
     },
     {
         id: generateRandomString(),
         text: 'Пожаловаться',
-        icon: () => WarningIcon()
+        icon: EIcon.shame
     },
 ]
 
@@ -54,7 +55,7 @@ export function MenuItemsList({postId}: TMenuItemsListProps) {
                         key={id}
                         className={styles.menuItem}
                     >
-                        <BlockIcon/>
+                        <Icon name={icon} size={16}/>
                         <Text size={12} color={EColors.grey66}>{text}</Text>
                     </li>
                 ))
