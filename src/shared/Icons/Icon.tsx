@@ -1,17 +1,23 @@
 import React from 'react';
-import {BlockIcon} from './BlockIcon';
+import {BlockIcon, CommentIcon, AnonIcon, SaveIcon, ShareIcon, WarningIcon, MenuIcon} from '../Icons';
 import {EIcon} from "./EIcon";
-import {CommentIcon} from "./CommentIcon";
-import {WarningIcon} from "./WarningIcon";
-import {SaveIcon} from "./SaveIcon";
-import {ShareIcon} from "./ShareIcon";
 
 interface IProps {
     name: EIcon;
     size: number;
+    className: string,
 }
 
-export const Icon: React.FC<IProps> = ({name, size}) => {
+interface IconComponentProps {
+    name: EIcon;
+    size: number;
+}
+
+export const Icon: React.FC<IProps> = ({name, size, className}) => {
+    return <div className={className}><IconComponent name={name} size={size}/></div>
+};
+
+function IconComponent({name, size}: IconComponentProps) {
     switch (name) {
         case EIcon.share:
             return <ShareIcon width={size} height={size}/>;
@@ -23,8 +29,11 @@ export const Icon: React.FC<IProps> = ({name, size}) => {
             return <CommentIcon width={size} height={size}/>
         case EIcon.shame:
             return <WarningIcon width={size} height={size}/>
-        // Добавьте здесь другие иконки
+        case EIcon.anon:
+            return <AnonIcon width={size} height={size}/>
+        case EIcon.menu:
+            return <MenuIcon width={size} height={size}/>
         default:
             return null;
     }
-};
+}

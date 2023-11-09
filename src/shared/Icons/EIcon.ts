@@ -4,4 +4,6 @@ export enum EIcon {
     share = 'share',
     save = 'save',
     shame = 'shame',
+    anon = 'anon',
+    menu = 'menu',
 }
