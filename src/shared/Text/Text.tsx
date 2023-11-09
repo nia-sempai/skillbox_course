@@ -10,6 +10,8 @@ interface ITextProps {
 
 export const EColors = {
     grey66: '--grey66',
+    grey99: '--grey99',
+    black: '--black',
 }
 
 export function Text({children, size, mobileSize, color}: ITextProps) {
