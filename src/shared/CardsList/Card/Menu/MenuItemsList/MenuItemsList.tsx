@@ -55,7 +55,7 @@ export function MenuItemsList({postId}: TMenuItemsListProps) {
                         key={id}
                         className={styles.menuItem}
                     >
-                        <Icon name={icon} size={16}/>
+                        <Icon className={''} name={icon} size={16}/>
                         <Text size={12} color={EColors.grey66}>{text}</Text>
                     </li>
                 ))

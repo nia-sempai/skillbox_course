@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './menu.css';
 import {Dropdown} from "../../../Dropdown";
-import {MenuIcon} from "../../../Icons";
 import {MenuItemsList} from "./MenuItemsList";
-import {Text, EColors} from "../../../Text";
-
+import {EColors, Text} from "../../../Text";
+import {Icon} from "../../../Icons/Icon";
+import {EIcon} from "../../../Icons/EIcon";
 
 
 export function Menu() {
@@ -27,7 +27,7 @@ export function Menu() {
 function MenuButton() {
     return (
         <button className={styles.menuButton}>
-            <MenuIcon/>
+            <Icon className={''} name={EIcon.menu} size={12}/>
         </button>
     );
 }
